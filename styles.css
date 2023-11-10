@@ -1,5 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Playfair+Display&display=swap");
+
+html,
 body {
-    color: teal;
+  color: black;
+  background-color: #76A555;
+  font-family: "EB Garamond", serif;
+  margin: 0;
+  padding: 0;
 }
 
 h1,
@@ -8,6 +15,30 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0 auto;
-    padding: 0 auto;
+  font-family: "Playfair Display", serif;
+  margin: 0;
+}
+
+header {
+    color: whitesmoke;
+    background-color: red;
+    height: 75px;
+    transition: background-color 2s ease-out;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+@media (max-width: 780px) {
+    section.donuts {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    main {
+        grid-template-columns: 1fr;
+    }
 }
