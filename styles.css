@@ -29,6 +29,7 @@ header {
 section.wallets {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    overflow: scroll;
 }
 
 .wallets article {
