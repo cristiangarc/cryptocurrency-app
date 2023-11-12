@@ -5,25 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wallets</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="api_key.js" defer></script>
     <script src="main.js" defer></script>
+    <script src="example.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Wallets App</h1>
     </header>
-    <section class="wallets">
-        <article>
-            <h2>Wallet 1</h2>
-        </article>
-        <article>
-            <h2>Wallet 2</h2>
-        </article>
-        <article>
-            <h2>Wallet 3</h2>
-        </article>
-    </section>
     <form>
-        <input type="submit" name="create-wallet" id="create-wallet" value="Create Wallet"/>
+        <input type="submit" name="create-wallet" id="create-wallet" value="Display More Currencies"/>
     </form>
+    <main class="wallets">
+        <section class="primary">
+            <article>
+                <h2>Currency 1:</h2>
+                <h3>1.00USD</h3>
+            </article>
+            <article>
+                <h2>Currency 2:</h2>
+                <h3>2.00USD</h3>
+            </article>
+            <article>
+                <h2>Currency 3:</h2>
+                <h3>3.00USD</h3>
+            </article>
+        </section>
+        <section class="secondary">
+            <article>
+                <h2>Currency 1:</h2>
+                <h3>1.00USD</h3>
+            </article>
+            <article>
+                <h2>Currency 2:</h2>
+                <h3>2.00USD</h3>
+            </article>
+            <article>
+                <h2>Currency 3:</h2>
+                <h3>3.00USD</h3>
+        </section>
+    </main>
 </body>
 </html>
