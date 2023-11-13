@@ -7,6 +7,8 @@ body {
   font-family: "EB Garamond", serif;
   margin: 0;
   padding: 0;
+  background-image: url("img/neom-207NEuFvjlg-unsplash.jpg");
+  background-size: cover;
 }
 
 h1,
@@ -22,25 +24,95 @@ h6 {
 
 header {
     color: whitesmoke;
-    background-color: rgba(255, 0, 0, 0.861);
+    background-color: rgba(255, 0, 0);
     height: 75px;
+    transition: background-color 2s ease-out;
 }
 
-section.wallets {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    overflow: scroll;
+header:hover {
+    background-color: rgb(180, 0, 0);
+    cursor: pointer;
 }
 
-.wallets article {
-    border: 1px solid gold;
-    display: inline-block;
+main.wallets {
+    position: relative;
     width: auto;
-    height: auto;
+    height: 150px;
+    overflow-x: hidden;
+}
+
+.primary {
+    border: 1px solid greenyellow;
+    display: inline-block;
+    white-space: nowrap;
+    padding: 15px 0px 15px 0px;
+    width: auto;
+    height: 100px;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    animation: primary 15s linear infinite;
+}
+
+.primary article {
+    display: inline-block;
+    width: inherit;
+    height: inherit;
+    padding: 10px;
+}
+
+.secondary {
+    border: 1px solid greenyellow;
+    display: block;
+    white-space: nowrap;
+    padding: 15px 0px 15px 0px;
+    width: auto;
+    height: 100px;
+    position: absolute;
+    left: 100%;
+    top: 0%;
+    animation: secondary 15s linear infinite;
+}
+
+.secondary article {
+    display: inline-block;
+    width: inherit;
+    height: inherit;
+    padding: 10px;
+}
+
+
+@keyframes primary {
+    from {
+        left: 0%;
+    }
+    to {
+        left: -100%;
+    }
+}
+
+@keyframes secondary {
+    from {
+        left: 100%;
+    }
+    to {
+        left: 0%;
+    }
+}
+
+div {
+    display: inline-block;
+    width: 200px;
+    margin: 0px 25px 0px 25px;
+}
+
+#create-wallet {
+    margin: 5px 15px 15px 0px;
+    height: 25px;
 }
 
 @media (max-width: 780px) {
-    section.donuts {
+    main {
         grid-template-columns: repeat(2, 1fr);
     }
 }
