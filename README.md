@@ -1,2 +1,2 @@
 ## Intro
-This app is a cryptocurrency wallets app. Users can create a wallet and make fake deposits into their wallet.
+This app is a cryptocurrency prices app. Users can see current prices for top coins by clicking a button.
