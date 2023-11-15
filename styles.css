@@ -16,36 +16,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
-  color: aliceblue;
-}
-
-section.navigation {
-    display: flex;
-}
-
-.navigation a:link {
-    font-size: 29px;
-    font-family: Roboto-Mono;
+    margin: 0;
     color: aliceblue;
-    font-size: 19px;
-}
-
-.navigation div {
-    margin: 5px;
-}
-
-.wallets h3 {
-    color: green;
-}
-
-section {
-    display: block;
-    margin: 10px 0px 10px 5px;
-}
-
-section h2 {
-    text-align: center;
 }
 
 header {
@@ -60,6 +32,46 @@ header:hover {
     cursor: pointer;
 }
 
+section.navigation {
+    display: flex;
+}
+
+.navigation a:link,
+.navigation a:visited {
+    font-family: Roboto-Mono;
+    color: aliceblue;
+    font-size: 19px;
+    text-decoration: none;
+}
+
+.navigation a:hover {
+    text-decoration: underline;
+}
+
+.navigation a:active {
+    text-decoration: underline;
+}
+
+.navigation div {
+    margin: 5px;
+}
+
+.wallets h3 {
+    color: green;
+}
+
+section.primary,
+section.secondary {
+    display: block;
+    margin: 10px 0px 10px 5px;
+}
+
+article.prices h2,
+article.top-traded h2 {
+    text-align: center;
+}
+
+
 main.wallets {
     position: relative;
     width: auto;
@@ -68,7 +80,6 @@ main.wallets {
 }
 
 .primary {
-    border: 1px solid greenyellow;
     display: inline-block;
     white-space: nowrap;
     padding: 15px 0px 15px 0px;
@@ -88,7 +99,6 @@ main.wallets {
 }
 
 .secondary {
-    border: 1px solid greenyellow;
     display: block;
     white-space: nowrap;
     padding: 15px 0px 15px 0px;
@@ -112,7 +122,7 @@ form {
     text-align: right;
 }
 
-div.top-traded {
+section.top-traded {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
@@ -127,7 +137,8 @@ div.top-traded {
     font-size: 19px;
 }
 
-article {
+.primary article,
+.secondary article {
     text-align: center;
 }
 
@@ -155,13 +166,13 @@ article {
 }
 
 @media (max-width: 780px) {
-    main {
+    section.top-traded {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 500px) {
-    main {
-        grid-template-columns: repeat(2, 1fr);
+    section.top-traded {
+        grid-template-columns: 1fr;
     }
 }
