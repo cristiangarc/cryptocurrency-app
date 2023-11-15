@@ -16,23 +16,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
-  color: aliceblue;
-}
-
-section.navigation {
-    display: flex;
-}
-
-.navigation a:link {
-    font-size: 29px;
-    font-family: Roboto-Mono;
+    margin: 0;
     color: aliceblue;
-    font-size: 19px;
-}
-
-.navigation div {
-    margin: 5px;
 }
 
 header {
@@ -46,6 +31,36 @@ header:hover {
     background-color: rgb(180, 0, 0);
     cursor: pointer;
 }
+
+section.navigation {
+    display: flex;
+}
+
+.navigation a:link {
+    font-family: Roboto-Mono;
+    font-size: 19px;
+}
+
+.navigation a:link,
+.navigation a:visited {
+    color: aliceblue;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navigation a:hover {
+    text-decoration: underline;
+}
+
+.navigation a:active {
+    text-decoration: underline;
+}
+
+
+.navigation div {
+    margin: 5px;
+}
+
 
 article {
     text-align: center;
@@ -68,4 +83,16 @@ article.news-article {
 .news-article img {
     display: block;
     margin: 5px;
+}
+
+@media (max-width: 780px) {
+    section.news {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    section.news {
+        grid-template-columns: 1fr;
+    }
 }
