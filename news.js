@@ -30,7 +30,7 @@ form.addEventListener("submit", (event) => {
     })
     .then((response) => response.json())
     .then((data) => {
-        displayArticles(data.Data, 1);
+        displayArticles(data.Data, 3);
     })
     .catch((error) => console.log(error));
 })
