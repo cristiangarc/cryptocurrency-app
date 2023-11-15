@@ -11,10 +11,13 @@
 <body>
     <header>
         <h1>Cryptocurrency App</h1>
+        <section class="navigation">
+            <div><a href="./index.html">Home</a></div>
+            <div><a href="./news.html">News</a></div>
+            <div><h2>Contact</h2></div>    
+        </section>
     </header>
-    <form>
-        <input type="submit" name="create-wallet" id="create-wallet" value="Display More Currencies"/>
-    </form>
+    <section><h2>Prices</h2></section>
     <main class="wallets">
         <section class="primary">
             <article>
@@ -30,7 +33,6 @@
                 <h3>3.00USD</h3>
             </article>
         </section>
-        <div></div>
         <section class="secondary">
             <article>
                 <h2>Coin 1:</h2>
@@ -45,5 +47,20 @@
                 <h3>3.00USD</h3>
         </section>
     </main>
+    <form>
+        <input type="submit" name="display-coins" id="display-coins" value="Display More Coins"/>
+    </form>
+    <section><h2>Top Traded Cryptocurrencies (24H Volume)</h2></section>
+    <div class="top-traded">
+        <div class="first-column">
+            <ul></ul>
+        </div>
+        <div class="second-column">
+            <ul></ul>
+        </div>
+        <div class="third-column">
+            <ul></ul>
+        </div>
+    </div>
 </body>
 </html>
