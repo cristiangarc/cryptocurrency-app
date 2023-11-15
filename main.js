@@ -1,5 +1,6 @@
 let coinCount = 0;
 let articleCount = 3;
+let hasDisplayedCoins = false;
 const maxArticles = 13;
 
 const coins = ["BTC", "ETH", "USDT", "BNB", "XRP", "SOL", "USDC", "ADA", "DOGE", "TRX"];
@@ -15,22 +16,23 @@ const createTokenListItem = (token) => {
 }
 
 const displayTokens = (tokenObjects) => {
-    if (coinCount > 0) {
-        let j = 0;
+    if (!hasDisplayedCoins) {
+        let col = 0;
         for (let i = 0; i < tokenObjects.length; i++) {
             const newLi = createTokenListItem(tokenObjects[i]);
             let ul = null;
             // add to the first column
-            if (j === 0) {
+            if (col === 0) {
                 ul = document.querySelector(".first-column ul");
-            } else if (j === 1) { // add to second column
+            } else if (col === 1) { // add to second column
                 ul = document.querySelector(".second-column ul");
             } else { // add to third column
                 ul = document.querySelector(".third-column ul");
             }
-            j = (j + 1) % 3
+            col = (col + 1) % 3
             ul.append(newLi);
         }
+        hasDisplayedCoins = !hasDisplayedCoins;
     }
 }
 
