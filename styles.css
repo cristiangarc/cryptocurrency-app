@@ -1,25 +1,51 @@
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Playfair+Display&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300&family=Roboto:wght@100&display=swap');
 
 html,
 body {
-  color: black;
   background-color: teal;
-  font-family: "EB Garamond", serif;
+  font-family: Roboto-Mono;
   margin: 0;
   padding: 0;
   background-image: url("img/neom-207NEuFvjlg-unsplash.jpg");
   background-size: cover;
 }
 
-h1,
+h1, 
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Playfair Display", serif;
   margin: 0;
-  color: whitesmoke;
+  color: aliceblue;
+}
+
+section.navigation {
+    display: flex;
+}
+
+.navigation a:link {
+    font-size: 29px;
+    font-family: Roboto-Mono;
+    color: aliceblue;
+    font-size: 19px;
+}
+
+.navigation div {
+    margin: 5px;
+}
+
+.wallets h3 {
+    color: green;
+}
+
+section {
+    display: block;
+    margin: 10px 0px 10px 5px;
+}
+
+section h2 {
+    text-align: center;
 }
 
 header {
@@ -81,6 +107,29 @@ main.wallets {
     padding: 10px;
 }
 
+form {
+    display: block;
+    text-align: right;
+}
+
+div.top-traded {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.top-traded div {
+    display: inline-block;
+}
+
+.top-traded ul {
+    color: teal;
+    list-style: square;
+    font-size: 19px;
+}
+
+article {
+    text-align: center;
+}
 
 @keyframes primary {
     from {
@@ -100,13 +149,7 @@ main.wallets {
     }
 }
 
-div {
-    display: inline-block;
-    width: 200px;
-    margin: 0px 25px 0px 25px;
-}
-
-#create-wallet {
+#display-coins {
     margin: 5px 15px 15px 0px;
     height: 25px;
 }
