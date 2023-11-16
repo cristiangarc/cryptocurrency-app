@@ -87,6 +87,24 @@ article.news-article {
 }
 
 @media (max-width: 780px) {
+    h1, 
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: small;
+    }
+    
+    header {
+        font-size: small;
+        height: 40px;
+    }
+
+    .navigation a:link {
+        font-size: 12px;
+    }
+    
     section.news {
         grid-template-columns: repeat(2, 1fr);
     }
