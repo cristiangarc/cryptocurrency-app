@@ -20,7 +20,6 @@ h6 {
     color: aliceblue;
 }
 
-
 header {
     color: whitesmoke;
     font-size: 20px;
@@ -189,9 +188,8 @@ div.first-column {
 }
 
 div.fourth-column {
-    margin: 0px 0px 0px 35rem;
+    margin: 0px 0px 0px 25rem;
 }
-
 
 article.move-left,
 article.move-right {
@@ -199,6 +197,11 @@ article.move-right {
     height: 15px;
     display: inline-block;
     vertical-align: middle;;
+}
+
+article.move-left:hover,
+article.move-right:hover {
+    font-size: 26px;
 }
 
 article.move-left h3,
@@ -242,6 +245,24 @@ form input {
 
 
 @media (max-width: 780px) {
+    h1, 
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: small;
+    }
+    
+    header {
+        font-size: small;
+        height: 40px;
+    }
+
+    .navigation a:link {
+        font-size: 12px;
+    }
+
     section.top-traded {
         grid-template-columns: repeat(2, 1fr);
     }
