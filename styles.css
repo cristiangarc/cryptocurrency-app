@@ -20,10 +20,12 @@ h6 {
     color: aliceblue;
 }
 
+
 header {
     color: whitesmoke;
+    font-size: 20px;
     background-color: rgba(255, 0, 0);
-    height: 75px;
+    height: 80px;
     transition: background-color 2s ease-out;
 }
 
@@ -77,6 +79,7 @@ section.secondary {
 article.prices h2,
 article.top-traded h2 {
     text-align: center;
+    font-size: 30px;
 }
 
 
@@ -85,6 +88,16 @@ main.coins {
     width: auto;
     height: 115px;
     overflow-x: hidden;
+}
+
+.primary h2,
+.secondary h2 {
+    font-size: 28px;
+}
+
+.primary h3,
+.secondary h3 {
+    font-size: 24px;
 }
 
 .primary {
@@ -147,12 +160,12 @@ section.hidden {
 
 section.top-traded {
     transform: translate(0%);
-    transition: 3s linear;
+    transition: 2s linear;
 }
 
 section.hidden {
     transform: translate(-100%);
-    transition: 3s linear;
+    transition: 2s linear;
 }
 
 div.first-column {
@@ -161,21 +174,24 @@ div.first-column {
 
 .top-traded div {
     display: inline-block;
-    transition: 1s ease-in-out;
+    transition: 1s ease-out;
+}
+
+.top-traded div.hidden {
+    transform: translate(12rem);
+    transition: 0.5s ease-in-out;
 }
 
 .top-traded ul {
     list-style: square;
+    font-size: 28px;
+    /* border: 1px solid blue; */
 }
 
 div.fourth-column {
     margin: 0px 0px 0px 35rem;
 }
 
-.top-traded div.hidden {
-    /* transform: translate(12rem); */
-    transition: 1s ease-in-out;
-}
 
 article.move-left,
 article.move-right {
@@ -201,6 +217,11 @@ article.move-right h3:active {
     text-align: center;
 }
 
+form input {
+    margin: 5px 15px 15px 0px;
+    height: 25px;
+}
+
 @keyframes primary {
     from {
         left: 0%;
@@ -217,11 +238,6 @@ article.move-right h3:active {
     to {
         left: 0%;
     }
-}
-
-#display-coins {
-    margin: 5px 15px 15px 0px;
-    height: 25px;
 }
 
 
