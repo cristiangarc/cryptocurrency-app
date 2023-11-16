@@ -161,6 +161,7 @@ div.first-column {
 
 .top-traded div {
     display: inline-block;
+    transition: 1s ease-in-out;
 }
 
 .top-traded ul {
@@ -172,8 +173,8 @@ div.fourth-column {
 }
 
 .top-traded div.hidden {
-    transform: translate(12rem);
-    transition: 0s linear;
+    /* transform: translate(12rem); */
+    transition: 1s ease-in-out;
 }
 
 article.move-left,
