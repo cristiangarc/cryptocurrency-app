@@ -20,7 +20,6 @@ h6 {
     color: aliceblue;
 }
 
-
 header {
     color: whitesmoke;
     font-size: 20px;
@@ -201,6 +200,11 @@ article.move-right {
     vertical-align: middle;;
 }
 
+article.move-left:hover,
+article.move-right:hover {
+    font-size: 26px;
+}
+
 article.move-left h3,
 article.move-right h3 {
     padding: 5px 15px 0px 0px;
@@ -242,6 +246,24 @@ form input {
 
 
 @media (max-width: 780px) {
+    h1, 
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: small;
+    }
+    
+    header {
+        font-size: small;
+        height: 40px;
+    }
+
+    .navigation a:link {
+        font-size: 12px;
+    }
+
     section.top-traded {
         grid-template-columns: repeat(2, 1fr);
     }
