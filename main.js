@@ -1,7 +1,8 @@
-let coinCount = 0;
-let articleCount = 3;
+let articleCount = 0;
 let hasDisplayedCoins = false;
-const maxArticles = 13;
+let hasDisplayedPrice = false;
+const maxArticles = 10;
+let displayedTokensStr = "";
 
 const coins = ["BTC", "ETH", "USDT", "BNB", "XRP", "SOL", "USDC", "ADA", "DOGE", "TRX"];
 coinsStr = coins.join(",");
@@ -17,21 +18,21 @@ const createTokenListItem = (token) => {
 
 const displayTokens = (tokenObjects) => {
     if (!hasDisplayedCoins) {
-        let col = 0;
-        for (let i = 0; i < tokenObjects.length; i++) {
-            const newLi = createTokenListItem(tokenObjects[i]);
-            let ul = null;
+        let column = 0;
+        tokenObjects.forEach((token) => {
+            const newLi = createTokenListItem(token);
+            let ulElement = null;
             // add to the first column
-            if (col === 0) {
-                ul = document.querySelector(".first-column ul");
-            } else if (col === 1) { // add to second column
-                ul = document.querySelector(".second-column ul");
+            if (column === 0) {
+                ulElement = document.querySelector(".first-column ul");
+            } else if (column === 1) { // add to second column
+                ulElement = document.querySelector(".second-column ul");
             } else { // add to third column
-                ul = document.querySelector(".third-column ul");
+                ulElement = document.querySelector(".third-column ul");
             }
-            col = (col + 1) % 3
-            ul.append(newLi);
-        }
+            column = (column + 1) % 3
+            ulElement.append(newLi);
+        })
         hasDisplayedCoins = !hasDisplayedCoins;
     }
 }
@@ -50,18 +51,24 @@ const getTopTenCoins = (url) => {
 }
 
 const deleteInitialArticles = () => {
-    const initialArticles = document.querySelectorAll(".primary article");
-    const initialArticlesSecond = document.querySelectorAll(".secondary article");
+    const initialArticles = document.querySelectorAll(".wallets article");
 
-    for (const article of initialArticles) {
+    initialArticles.forEach((article) => {
         if (article.textContent.includes("Coin")) {
             article.remove();
         }
-    }
-    for (const article of initialArticlesSecond) {
-        if (article.textContent.includes("Coin")) {
+    })
+}
+
+const deleteWalletsArticles = () => {
+    if (hasDisplayedPrice) {
+        const walletsArticles = document.querySelectorAll(".wallets article");
+    
+        walletsArticles.forEach((article) => {
             article.remove();
-        }
+        });
+        articleCount = 0;
+        displayedTokensStr = "";
     }
 }
 
@@ -77,29 +84,30 @@ const createTokenArticle = (tokenName, tokenPrice, tokenSymbol) => {
     return newArticle;
 }
 
-const displayTokenAndPrice = (tokenObjects, numOfTokens) => {
-    if (coinCount === 0) {
+const displayTokenAndPrice = (tokenObjects) => {
+    if (articleCount === 0 && !hasDisplayedPrice) {
         deleteInitialArticles();
     }
 
-    const keys = Object.keys(tokenObjects);
-    for (let i = coinCount; i < coinCount + numOfTokens; i++) {
-        if (i >= keys.length || articleCount >= maxArticles) {
-            break;
+    const tokenNames = Object.keys(tokenObjects);
+    tokenNames.forEach((token) => {
+        if (articleCount >= maxArticles || displayedTokensStr.includes(token)) {
+            return null;
         }
-        const tokenName = keys[i];
-        const article = createTokenArticle(tokenName, tokenObjects[tokenName]["USD"], "USD");
+        const newArticle = createTokenArticle(token, tokenObjects[token]["USD"], "USD");
         articleCount++;
+        displayedTokensStr += token;
         
         // append to both wallet sections
         const walletsSection = document.querySelector(".wallets .primary");
-        walletsSection.append(article);
-
+        walletsSection.append(newArticle);
+    
         const walletsSection2 = document.querySelector(".wallets .secondary");
-        const article2 = createTokenArticle(tokenName, tokenObjects[tokenName]["USD"], "USD");
-        walletsSection2.append(article2);
-    }
-    coinCount += numOfTokens;
+        const newArticle2 = createTokenArticle(token, tokenObjects[token]["USD"], "USD");
+        walletsSection2.append(newArticle2);
+
+        hasDisplayedPrice = true;
+    })
 }
 
 const form = document.querySelector("form");
@@ -113,8 +121,33 @@ form.addEventListener("submit", (event) => {
     })
     .then((response) => response.json())
     .then((data) => {
+        deleteWalletsArticles();
         displayTokenAndPrice(data, 5);
-        getTopTenCoins(url2);
     })
     .catch((error) => console.log(error));
+})
+
+const formTopTraded = document.querySelector("form.top-traded");
+formTopTraded.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    getTopTenCoins(url2);
+})
+
+// const formHideSection = document.querySelector("form.hide-section");
+const moveLeftArticle = document.querySelector("article.move-left");
+moveLeftArticle.addEventListener("click", () => {
+    const section = document.querySelector("section.top-traded");
+    section.classList.add("hidden");
+
+    const hiddenDivs = document.querySelectorAll(".top-traded div.hidden");
+    if (hiddenDivs.length) {
+        hiddenDivs.forEach((div) => div.classList.remove("hidden"));
+    }
+})
+
+const moveRightArticle = document.querySelector("article.move-right");
+moveRightArticle.addEventListener("click", () => {
+    const section = document.querySelector("section.top-traded");
+    section.classList.remove("hidden");
 })
