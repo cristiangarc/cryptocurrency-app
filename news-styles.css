@@ -22,8 +22,9 @@ h6 {
 
 header {
     color: whitesmoke;
+    font-size: 20px;
     background-color: rgba(255, 0, 0);
-    height: 75px;
+    height: 80px;
     transition: background-color 2s ease-out;
 }
 
