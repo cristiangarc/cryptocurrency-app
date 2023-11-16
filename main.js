@@ -27,10 +27,16 @@ const displayTokens = (tokenObjects) => {
                 ulElement = document.querySelector(".first-column ul");
             } else if (column === 1) { // add to second column
                 ulElement = document.querySelector(".second-column ul");
-            } else { // add to third column
+            } else if (column === 2) { // add to third column
                 ulElement = document.querySelector(".third-column ul");
+            } else if (column === 3) { // add to fourth column
+                ulElement = document.querySelector(".fourth-column ul");
+            } else if (column === 4) {
+                ulElement = document.querySelector(".fifth-column ul");
+            } else {
+                ulElement = document.querySelector(".sixth-column ul");
             }
-            column = (column + 1) % 3
+            column = (column + 1) % 6
             ulElement.append(newLi);
         })
         hasDisplayedCoins = !hasDisplayedCoins;
@@ -48,28 +54,6 @@ const getTopTenCoins = (url) => {
         displayTokens(data.Data);
     })
     .catch((error) => console.log(error));
-}
-
-const deleteInitialArticles = () => {
-    const initialArticles = document.querySelectorAll(".wallets article");
-
-    initialArticles.forEach((article) => {
-        if (article.textContent.includes("Coin")) {
-            article.remove();
-        }
-    })
-}
-
-const deleteWalletsArticles = () => {
-    if (hasDisplayedPrice) {
-        const walletsArticles = document.querySelectorAll(".wallets article");
-    
-        walletsArticles.forEach((article) => {
-            article.remove();
-        });
-        articleCount = 0;
-        displayedTokensStr = "";
-    }
 }
 
 const createTokenArticle = (tokenName, tokenPrice, tokenSymbol) => {
@@ -99,12 +83,12 @@ const displayTokenAndPrice = (tokenObjects) => {
         displayedTokensStr += token;
         
         // append to both wallet sections
-        const walletsSection = document.querySelector(".wallets .primary");
-        walletsSection.append(newArticle);
+        const coinsSection = document.querySelector(".coins .primary");
+        coinsSection.append(newArticle);
     
-        const walletsSection2 = document.querySelector(".wallets .secondary");
+        const coinsSection2 = document.querySelector(".coins .secondary");
         const newArticle2 = createTokenArticle(token, tokenObjects[token]["USD"], "USD");
-        walletsSection2.append(newArticle2);
+        coinsSection2.append(newArticle2);
 
         hasDisplayedPrice = true;
     })
@@ -121,7 +105,7 @@ form.addEventListener("submit", (event) => {
     })
     .then((response) => response.json())
     .then((data) => {
-        deleteWalletsArticles();
+        deleteCoinsArticles();
         displayTokenAndPrice(data, 5);
     })
     .catch((error) => console.log(error));
@@ -134,7 +118,6 @@ formTopTraded.addEventListener("submit", (event) => {
     getTopTenCoins(url2);
 })
 
-// const formHideSection = document.querySelector("form.hide-section");
 const moveLeftArticle = document.querySelector("article.move-left");
 moveLeftArticle.addEventListener("click", () => {
     const section = document.querySelector("section.top-traded");
@@ -150,4 +133,10 @@ const moveRightArticle = document.querySelector("article.move-right");
 moveRightArticle.addEventListener("click", () => {
     const section = document.querySelector("section.top-traded");
     section.classList.remove("hidden");
+
+    const divsToHide = [];
+    divsToHide.push(document.querySelector("div.fourth-column"));
+    divsToHide.push(document.querySelector("div.fifth-column"));
+    divsToHide.push(document.querySelector("div.sixth-column"));
+    divsToHide.forEach((div) => div.classList.add("hidden"));
 })
