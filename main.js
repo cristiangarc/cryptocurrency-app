@@ -4,7 +4,6 @@ let hasDisplayedPrice = false;
 const maxArticles = 10;
 let displayedTokensStr = "";
 
-
 const coins = ["BTC", "ETH", "USDT", "BNB", "XRP", "SOL", "USDC", "ADA", "DOGE", "TRX"];
 coinsStr = coins.join(",");
 const url1 = `https://min-api.cryptocompare.com/data/pricemulti?fsyms=${coinsStr}&tsyms=USD`;
@@ -55,28 +54,6 @@ const getTopTenCoins = (url) => {
         displayTokens(data.Data);
     })
     .catch((error) => console.log(error));
-}
-
-const deleteInitialArticles = () => {
-    const initialArticles = document.querySelectorAll(".coins article");
-
-    initialArticles.forEach((article) => {
-        if (article.textContent.includes("Coin")) {
-            article.remove();
-        }
-    })
-}
-
-const deleteCoinsArticles = () => {
-    if (hasDisplayedPrice) {
-        const coinsArticles = document.querySelectorAll(".coins article");
-    
-        coinsArticles.forEach((article) => {
-            article.remove();
-        });
-        articleCount = 0;
-        displayedTokensStr = "";
-    }
 }
 
 const createTokenArticle = (tokenName, tokenPrice, tokenSymbol) => {
