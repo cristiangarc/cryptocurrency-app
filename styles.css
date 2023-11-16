@@ -56,14 +56,22 @@ section.navigation {
     margin: 5px;
 }
 
-.wallets h3 {
-    color: green;
+main.coins {
+    text-align: center;
 }
+
+.coins h3 {
+    color: green;
+}    
+
 
 section.primary,
 section.secondary {
     display: block;
-    margin: 10px 0px 10px 5px;
+    /* margin: 10px 0px 10px 5px; */
+    align-content: center;
+    margin: 0 auto;
+    text-align: right;
 }
 
 article.prices h2,
@@ -72,10 +80,10 @@ article.top-traded h2 {
 }
 
 
-main.wallets {
+main.coins {
     position: relative;
     width: auto;
-    height: 150px;
+    height: 115px;
     overflow-x: hidden;
 }
 
@@ -88,7 +96,7 @@ main.wallets {
     position: absolute;
     left: 0%;
     top: 0%;
-    animation: primary 15s linear infinite;
+    animation: primary 15s linear 0;
 }
 
 .primary article {
@@ -107,7 +115,7 @@ main.wallets {
     position: absolute;
     left: 100%;
     top: 0%;
-    animation: secondary 15s linear infinite;
+    animation: secondary 15s linear 0;
 }
 
 .secondary article {
@@ -119,12 +127,36 @@ main.wallets {
 
 form {
     display: block;
-    text-align: right;
+}
+
+main.top-traded {
+    display: inline-block;
+    width: 90%;
+    height: auto;
+}
+
+section.top-traded,
+section.hidden {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    gap: 20rem;
+    color: teal;
+    font-size: 19px;
 }
 
 section.top-traded {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    transform: translate(0%);
+    transition: 3s linear;
+}
+
+section.hidden {
+    transform: translate(-100%);
+    transition: 3s linear;
+}
+
+div.first-column {
+    margin: 0px 0px 0px 6rem;
 }
 
 .top-traded div {
@@ -132,9 +164,35 @@ section.top-traded {
 }
 
 .top-traded ul {
-    color: teal;
     list-style: square;
-    font-size: 19px;
+}
+
+div.fourth-column {
+    margin: 0px 0px 0px 35rem;
+}
+
+.top-traded div.hidden {
+    transform: translate(12rem);
+    transition: 0s linear;
+}
+
+article.move-left,
+article.move-right {
+    font-size: 24px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;;
+}
+
+article.move-left h3,
+article.move-right h3 {
+    padding: 5px 15px 0px 0px;
+    color: aliceblue;
+}
+
+article.move-left h3:active,
+article.move-right h3:active {
+    color: red;
 }
 
 .primary article,
@@ -164,6 +222,7 @@ section.top-traded {
     margin: 5px 15px 15px 0px;
     height: 25px;
 }
+
 
 @media (max-width: 780px) {
     section.top-traded {
