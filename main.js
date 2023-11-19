@@ -94,23 +94,6 @@ const displayTokenAndPrice = (tokenObjects) => {
     })
 }
 
-const form = document.querySelector("form");
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    fetch(url1, {
-        headers: {
-            "authorization": {API_KEY2}
-        }
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        deleteCoinsArticles();
-        displayTokenAndPrice(data, 5);
-    })
-    .catch((error) => console.log(error));
-})
-
 const formTopTraded = document.querySelector("form.top-traded");
 formTopTraded.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -140,3 +123,32 @@ moveRightArticle.addEventListener("click", () => {
     divsToHide.push(document.querySelector("div.sixth-column"));
     divsToHide.forEach((div) => div.classList.add("hidden"));
 })
+
+const formUpdateCoins = document.querySelector("form.update-coins");
+formUpdateCoins.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    fetch(url1, {
+        headers: {
+            "authorization": {API_KEY2}
+        }
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        deleteCoinsArticles();
+        displayTokenAndPrice(data);
+    })
+    .catch((error) => console.log(error));
+})
+
+fetch(url1, {
+    headers: {
+        "authorization": {API_KEY2}
+    }
+})
+.then((response) => response.json())
+.then((data) => {
+    deleteCoinsArticles();
+    displayTokenAndPrice(data);
+})
+.catch((error) => console.log(error));
