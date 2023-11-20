@@ -263,12 +263,12 @@ form input {
     }
 
     section.top-traded {
-        grid-template-columns: repeat(2, 1fr);
+        width: auto;
     }
 }
 
 @media (max-width: 500px) {
     section.top-traded {
-        grid-template-columns: 1fr;
+        width: auto;
     }
 }
