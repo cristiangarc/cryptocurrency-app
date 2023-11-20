@@ -31,29 +31,16 @@ const displayTokens = (tokenObjects) => {
                 ulElement = document.querySelector(".third-column ul");
             } else if (column === 3) { // add to fourth column
                 ulElement = document.querySelector(".fourth-column ul");
-            } else if (column === 4) {
+            } else if (column === 4) { // add to fifth column
                 ulElement = document.querySelector(".fifth-column ul");
-            } else {
+            } else { // add to sixth column
                 ulElement = document.querySelector(".sixth-column ul");
             }
             column = (column + 1) % 6
             ulElement.append(newLi);
         })
-        hasDisplayedCoins = !hasDisplayedCoins;
+        hasDisplayedCoins = true;
     }
-}
-
-const getTopTenCoins = (url) => {
-    fetch(url, {
-        headers: {
-            "authorization": {API_KEY2}
-        }
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        displayTokens(data.Data);
-    })
-    .catch((error) => console.log(error));
 }
 
 const createTokenArticle = (tokenName, tokenPrice, tokenSymbol) => {
@@ -128,27 +115,7 @@ const formUpdateCoins = document.querySelector("form.update-coins");
 formUpdateCoins.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    fetch(url1, {
-        headers: {
-            "authorization": {API_KEY2}
-        }
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        deleteCoinsArticles();
-        displayTokenAndPrice(data);
-    })
-    .catch((error) => console.log(error));
+    getUpdatedPrices(url1, API_KEY2)
 })
 
-fetch(url1, {
-    headers: {
-        "authorization": {API_KEY2}
-    }
-})
-.then((response) => response.json())
-.then((data) => {
-    deleteCoinsArticles();
-    displayTokenAndPrice(data);
-})
-.catch((error) => console.log(error));
+getUpdatedPrices(url1, API_KEY2);
