@@ -17,8 +17,19 @@
         </section>
     </header>
     <article><h2>Latest News</h2></article>
-    <form action="submit">
-        <input type="submit" name="fetch-news" id="fetch-news" value="Fetch News" />
+    <form>
+        <label for="article-quantity">
+            Number of Articles:
+            <select id="article-quantity" name="article-quantity" required>
+                <option value="">---Select---</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </label>
+        <br/>
+        <br/>
+        <input type="submit" name="fetch-news" id="fetch-news" value="Fetch Articles" />
     </form>
     <section class="news"></section>
 </body>

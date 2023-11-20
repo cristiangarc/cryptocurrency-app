@@ -164,7 +164,7 @@ section.top-traded {
 }
 
 section.top-traded.hidden {
-    transform: translate(-120%);
+    transform: translate(-100%);
     transition: 2s linear;
 }
 
@@ -174,12 +174,12 @@ div.fourth-column {
 
 .top-traded div {
     display: inline-block;
-    /* transform: translate(20rem); */
+    transform: translate(5rem);
     transition: 1s ease-in-out;
 }
 
 .top-traded div.hidden {
-    /* transform: translate(20rem); */
+    transform: translate(5rem);
     transition: 0.5s ease-in-out;
 }
 
@@ -187,10 +187,6 @@ div.fourth-column {
     list-style: square;
     font-size: 28px;
     /* border: 1px solid blue; */
-}
-
-.second-traded div {
-    display: inline-block;
 }
 
 article.move-left,

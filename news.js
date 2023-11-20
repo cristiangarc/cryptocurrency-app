@@ -23,6 +23,7 @@ const form = document.querySelector("form");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     
+    const numOfArticles = event.target["article-quantity"].value;
     fetch(urlNews, {
         headers: {
             "authorization": {API_KEY2}
@@ -30,7 +31,7 @@ form.addEventListener("submit", (event) => {
     })
     .then((response) => response.json())
     .then((data) => {
-        displayArticles(data.Data, 3);
+        displayArticles(data.Data, numOfArticles);
     })
     .catch((error) => console.log(error));
 })
