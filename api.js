@@ -1,6 +1,8 @@
 const getUpdatedPrices = (url, apiKey) => {
     fetch(url, {
-        headers: {apiKey}
+        headers: {
+            "authorization": apiKey
+        }
     }).then((response) => response.json())
     .then((data) => {
         deleteCoinsArticles();
