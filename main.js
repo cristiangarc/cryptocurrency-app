@@ -115,7 +115,7 @@ const formUpdateCoins = document.querySelector("form.update-coins");
 formUpdateCoins.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    getUpdatedPrices(url1, API_KEY2)
+    getUpdatedPrices(url1, API_KEY2);
 })
 
 getUpdatedPrices(url1, API_KEY2);
