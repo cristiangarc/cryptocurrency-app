@@ -3,6 +3,7 @@ let hasDisplayedCoins = false;
 let hasDisplayedPrice = false;
 const maxArticles = 10;
 let displayedTokensStr = "";
+let topTradedTokens = [];
 
 const coins = ["BTC", "ETH", "USDT", "BNB", "XRP", "SOL", "USDC", "ADA", "DOGE", "TRX"];
 coinsStr = coins.join(",");
@@ -16,11 +17,12 @@ const createTokenListItem = (token) => {
     return newLi;
 }
 
-const displayTokens = (tokenObjects) => {
+const displayTopTradedTokens = (tokenObjects) => {
     if (!hasDisplayedCoins) {
         let column = 0;
         tokenObjects.forEach((token) => {
             const newLi = createTokenListItem(token);
+            topTradedTokens.push(token["CoinInfo"]["FullName"]);
             let ulElement = null;
             // add to the first column
             if (column === 0) {
@@ -88,27 +90,23 @@ formTopTraded.addEventListener("submit", (event) => {
     getTopTenCoins(url2);
 })
 
-const moveLeftArticle = document.querySelector("article.move-left");
-moveLeftArticle.addEventListener("click", () => {
+const flipHiddenTopTradedDivs = () => {
     const sectionDivs = document.querySelectorAll("section.top-traded div");
     for (const node of sectionDivs.values()) {
         if (!node.classList.value.includes("hidden")) node.classList.add("hidden");
         else node.classList.remove("hidden");
     }
+}
 
+const moveLeftArticle = document.querySelector("article.move-left");
+moveLeftArticle.addEventListener("click", () => {
+    flipHiddenTopTradedDivs();
     document.querySelector("section.top-traded").classList.add("hidden");
 })
 
 const moveRightArticle = document.querySelector("article.move-right");
 moveRightArticle.addEventListener("click", () => {
-    const section = document.querySelector("section.top-traded");
-    section.classList.remove("hidden");
-
-    const divsToHide = [];
-    divsToHide.push(document.querySelector("div.fourth-column"));
-    divsToHide.push(document.querySelector("div.fifth-column"));
-    divsToHide.push(document.querySelector("div.sixth-column"));
-    divsToHide.forEach((div) => div.classList.add("hidden"));
+    flipHiddenTopTradedDivs();
 
     document.querySelector("section.top-traded").classList.remove("hidden");
 })

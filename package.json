@@ -1,0 +1,15 @@
+{
+  "name": "wallets-app",
+  "version": "1.0.0",
+  "description": "This app is a cryptocurrency wallets app. Users can create a wallet and make fake deposits into their wallet.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Cristian Garcia",
+  "license": "ISC",
+  "dependencies": {
+    
+  }
+}

@@ -18,7 +18,7 @@ const getTopTenCoins = (url) => {
     })
     .then((response) => response.json())
     .then((data) => {
-        displayTokens(data.Data);
+        displayTopTradedTokens(data.Data);
     })
     .catch((error) => console.log(error));
 }

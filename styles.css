@@ -81,7 +81,6 @@ article.top-traded h2 {
     font-size: 30px;
 }
 
-
 main.coins {
     position: relative;
     width: auto;
@@ -150,31 +149,23 @@ main.top-traded {
 section.top-traded {
     display: flex;
     flex-flow: row nowrap;
-    overflow: hidden;
     justify-content: flex-start;
     gap: 20rem;
     color: teal;
     font-size: 19px;
-    transform: translate(0%);
+    /* transform: translate(0%); */
     transition: 2s linear;
 }
 
 section.top-traded.hidden {
     transform: translate(-100%);
     transition: 2s linear;
-    overflow: visible;
 }
 
-.top-traded div.fourth-column.hidden {
+.top-traded div.hidden {
+    display: none;
     transform: translate(0%);
     transition: 2s linear;
-    margin-left: 5rem;
-}
-
-.top-traded div.fourth-column {
-    transform: translate(0%);
-    transition: 2s linear;
-    margin-left: 0rem;
 }
 
 .top-traded ul {
@@ -232,37 +223,12 @@ form input {
 }
 
 
-@media (max-width: 780px) {
-    h1, 
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-size: small;
-    }
-    
-    header {
-        font-size: small;
-        height: 40px;
-    }
-
-    .navigation a:link {
-        font-size: 12px;
-    }
-
-    section.top-traded {
-        width: auto;
-    }
-
-    section.top-traded.hidden {
-        transform: translate(-120%);
-        transition: 2s linear;
+@media (max-width: 1000px) {
+    section.top-traded div {
+        width: 1rem;
     }
 }
 
 @media (max-width: 500px) {
-    section.top-traded {
-        width: auto;
-    }
+
 }
