@@ -147,7 +147,24 @@ main.top-traded {
     height: auto;
 }
 
-section.top-traded,
+section.top-traded {
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: hidden;
+    justify-content: flex-start;
+    gap: 20rem;
+    color: teal;
+    font-size: 19px;
+    transform: translate(0%);
+    transition: 2s linear;
+}
+
+section.top-traded.hidden {
+    overflow: visible;
+    transform: translate(-100%);
+    transition: 2s linear;
+}
+
 section.second-traded,
 section.hidden {
     display: flex;
@@ -156,16 +173,6 @@ section.hidden {
     gap: 20rem;
     color: teal;
     font-size: 19px;
-}
-
-section.top-traded {
-    transform: translate(0%);
-    transition: 2s linear;
-}
-
-section.top-traded.hidden {
-    transform: translate(-100%);
-    transition: 2s linear;
 }
 
 div.fourth-column {
@@ -264,6 +271,11 @@ form input {
 
     section.top-traded {
         width: auto;
+    }
+
+    section.top-traded.hidden {
+        transform: translate(-120%);
+        transition: 2s linear;
     }
 }
 
