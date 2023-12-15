@@ -155,31 +155,19 @@ section.top-traded {
     gap: 20rem;
     color: teal;
     font-size: 19px;
+}
+
+.top-traded div {
     transform: translate(0%);
     transition: 2s linear;
 }
 
-section.top-traded.hidden {
-    overflow: visible;
+.top-traded.hidden div {
     transform: translate(-100%);
     transition: 2s linear;
 }
 
-section.second-traded,
-section.hidden {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    gap: 20rem;
-    color: teal;
-    font-size: 19px;
-}
-
-div.fourth-column {
-    margin: 0px 0px 0px 30rem;
-}
-
-.top-traded div {
+/* .top-traded div {
     display: inline-block;
     transform: translate(5rem);
     transition: 1s ease-in-out;
@@ -187,8 +175,8 @@ div.fourth-column {
 
 .top-traded div.hidden {
     transform: translate(5rem);
-    transition: 0.5s ease-in-out;
-}
+    transition: 1s ease-in-out;
+} */
 
 .top-traded ul {
     list-style: square;
