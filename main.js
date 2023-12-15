@@ -90,13 +90,13 @@ formTopTraded.addEventListener("submit", (event) => {
 
 const moveLeftArticle = document.querySelector("article.move-left");
 moveLeftArticle.addEventListener("click", () => {
-    const section = document.querySelector("section.top-traded");
-    section.classList.add("hidden");
-
-    const hiddenDivs = document.querySelectorAll(".top-traded div.hidden");
-    if (hiddenDivs.length) {
-        hiddenDivs.forEach((div) => div.classList.remove("hidden"));
+    const sectionDivs = document.querySelectorAll("section.top-traded div");
+    for (const node of sectionDivs.values()) {
+        if (!node.classList.value.includes("hidden")) node.classList.add("hidden");
+        else node.classList.remove("hidden");
     }
+
+    document.querySelector("section.top-traded").classList.add("hidden");
 })
 
 const moveRightArticle = document.querySelector("article.move-right");
@@ -109,6 +109,8 @@ moveRightArticle.addEventListener("click", () => {
     divsToHide.push(document.querySelector("div.fifth-column"));
     divsToHide.push(document.querySelector("div.sixth-column"));
     divsToHide.forEach((div) => div.classList.add("hidden"));
+
+    document.querySelector("section.top-traded").classList.remove("hidden");
 })
 
 const formUpdateCoins = document.querySelector("form.update-coins");

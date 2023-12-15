@@ -147,18 +147,14 @@ main.top-traded {
     height: auto;
 }
 
-section.top-traded,
-section.second-traded,
-section.hidden {
+section.top-traded {
     display: flex;
     flex-flow: row nowrap;
+    overflow: hidden;
     justify-content: flex-start;
     gap: 20rem;
     color: teal;
     font-size: 19px;
-}
-
-section.top-traded {
     transform: translate(0%);
     transition: 2s linear;
 }
@@ -166,13 +162,34 @@ section.top-traded {
 section.top-traded.hidden {
     transform: translate(-100%);
     transition: 2s linear;
+    overflow: visible;
 }
 
-div.fourth-column {
-    margin: 0px 0px 0px 30rem;
+.top-traded div.fourth-column.hidden {
+    transform: translate(0%);
+    transition: 2s linear;
+    margin-left: 5rem;
 }
 
-.top-traded div {
+.top-traded div.fourth-column {
+    transform: translate(0%);
+    transition: 2s linear;
+    margin-left: 0rem;
+}
+
+
+/* .top-traded div {
+    display: inline-block;
+    transform: translate(0%);
+    transition: 2s linear;
+}
+
+.top-traded div.hidden {
+    transform: translate(-100%);
+    transition: 2s linear;
+} */
+
+/* .top-traded div {
     display: inline-block;
     transform: translate(5rem);
     transition: 1s ease-in-out;
@@ -180,8 +197,8 @@ div.fourth-column {
 
 .top-traded div.hidden {
     transform: translate(5rem);
-    transition: 0.5s ease-in-out;
-}
+    transition: 1s ease-in-out;
+} */
 
 .top-traded ul {
     list-style: square;
@@ -212,11 +229,6 @@ article.move-right h3 {
 article.move-left h3:active,
 article.move-right h3:active {
     color: red;
-}
-
-.primary article,
-.secondary article {
-    text-align: center;
 }
 
 form input {
@@ -264,6 +276,11 @@ form input {
 
     section.top-traded {
         width: auto;
+    }
+
+    section.top-traded.hidden {
+        transform: translate(-120%);
+        transition: 2s linear;
     }
 }
 
