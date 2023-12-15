@@ -155,17 +155,39 @@ section.top-traded {
     gap: 20rem;
     color: teal;
     font-size: 19px;
-}
-
-.top-traded div {
     transform: translate(0%);
     transition: 2s linear;
 }
 
-.top-traded.hidden div {
+section.top-traded.hidden {
     transform: translate(-100%);
     transition: 2s linear;
+    overflow: visible;
 }
+
+.top-traded div.fourth-column.hidden {
+    transform: translate(0%);
+    transition: 2s linear;
+    margin-left: 5rem;
+}
+
+.top-traded div.fourth-column {
+    transform: translate(0%);
+    transition: 2s linear;
+    margin-left: 0rem;
+}
+
+
+/* .top-traded div {
+    display: inline-block;
+    transform: translate(0%);
+    transition: 2s linear;
+}
+
+.top-traded div.hidden {
+    transform: translate(-100%);
+    transition: 2s linear;
+} */
 
 /* .top-traded div {
     display: inline-block;
@@ -207,11 +229,6 @@ article.move-right h3 {
 article.move-left h3:active,
 article.move-right h3:active {
     color: red;
-}
-
-.primary article,
-.secondary article {
-    text-align: center;
 }
 
 form input {
