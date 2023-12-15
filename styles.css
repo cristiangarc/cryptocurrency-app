@@ -140,7 +140,8 @@ form {
     display: block;
 }
 
-main.top-traded {
+div.top-traded {
+    overflow: hidden;
     display: inline-block;
     width: 90%;
     height: auto;
@@ -153,7 +154,8 @@ section.top-traded {
     gap: 20rem;
     color: teal;
     font-size: 19px;
-    /* transform: translate(0%); */
+    width: 90%;
+    transform: translate(0%);
     transition: 2s linear;
 }
 
@@ -162,8 +164,13 @@ section.top-traded.hidden {
     transition: 2s linear;
 }
 
+.top-traded div {
+    transform: translate(0%);
+    transition: 2s linear;
+}
+
 .top-traded div.hidden {
-    display: none;
+    /* display: none; */
     transform: translate(0%);
     transition: 2s linear;
 }
