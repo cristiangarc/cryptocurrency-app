@@ -177,29 +177,6 @@ section.top-traded.hidden {
     margin-left: 0rem;
 }
 
-
-/* .top-traded div {
-    display: inline-block;
-    transform: translate(0%);
-    transition: 2s linear;
-}
-
-.top-traded div.hidden {
-    transform: translate(-100%);
-    transition: 2s linear;
-} */
-
-/* .top-traded div {
-    display: inline-block;
-    transform: translate(5rem);
-    transition: 1s ease-in-out;
-}
-
-.top-traded div.hidden {
-    transform: translate(5rem);
-    transition: 1s ease-in-out;
-} */
-
 .top-traded ul {
     list-style: square;
     font-size: 28px;
