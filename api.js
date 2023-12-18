@@ -10,10 +10,10 @@ const getUpdatedPrices = (url, apiKey) => {
     }).catch((error) => console.log(error));
 }
 
-const getTopTenCoins = (url) => {
+const getTopTenCoins = (url, apiKey) => {
     fetch(url, {
         headers: {
-            "authorization": {API_KEY2}
+            "authorization": {apiKey}
         }
     })
     .then((response) => response.json())
