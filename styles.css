@@ -231,7 +231,29 @@ form input {
 
 
 @media (max-width: 1000px) {
-    section.top-traded div {
+    h1, 
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: small;
+    }
+    
+    header {
+        font-size: small;
+        height: 40px;
+    }
+
+    .navigation a:link {
+        font-size: 12px;
+    }
+    
+    section.news {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+	section.top-traded div {
         width: 1rem;
     }
 }
