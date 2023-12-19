@@ -1,4 +1,4 @@
-import 'dotenv/config';
+require('dotenv').config();
 
 let articleCount = 0;
 let hasDisplayedCoins = false;
@@ -13,7 +13,6 @@ const url1 = `https://min-api.cryptocompare.com/data/pricemulti?fsyms=${coinsStr
 const url2 = "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD";
 
 const createTokenListItem = (token) => {
-    // console.log(token);
     const newLi = document.createElement("li");
     newLi.textContent = `${token["CoinInfo"]["FullName"]}`;
     return newLi;
