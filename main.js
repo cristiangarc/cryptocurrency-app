@@ -11,6 +11,7 @@ const url1 = `https://min-api.cryptocompare.com/data/pricemulti?fsyms=${coinsStr
 const url2 = "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD";
 
 const createTokenListItem = (token) => {
+    // console.log(token);
     const newLi = document.createElement("li");
     newLi.textContent = `${token["CoinInfo"]["FullName"]}`;
     return newLi;
@@ -73,10 +74,6 @@ const displayTokenAndPrice = (tokenObjects) => {
         // append to both wallet sections
         const coinsSection = document.querySelector(".coins .primary");
         coinsSection.append(newArticle);
-    
-        const coinsSection2 = document.querySelector(".coins .secondary");
-        const newArticle2 = createTokenArticle(token, tokenObjects[token]["USD"], "USD");
-        coinsSection2.append(newArticle2);
 
         hasDisplayedPrice = true;
     })
