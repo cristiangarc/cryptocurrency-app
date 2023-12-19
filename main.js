@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 let articleCount = 0;
 let hasDisplayedCoins = false;
 let hasDisplayedPrice = false;
