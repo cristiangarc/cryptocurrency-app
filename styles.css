@@ -249,9 +249,13 @@ form input {
         font-size: 12px;
     }
     
-    section.news {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    main.coins {
+    overflow: scroll;
+	}
+	
+	section.top-traded {
+		overflow: scroll;
+	}
 
 	section.top-traded div {
         width: 1rem;
