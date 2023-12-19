@@ -94,14 +94,14 @@ const flipHiddenTopTradedDivs = () => {
     }
 }
 
-const moveLeftArticle = document.querySelector("article.move-left");
-moveLeftArticle.addEventListener("click", () => {
+const moveLeftSpan = document.querySelector("span.move-left");
+moveLeftSpan.addEventListener("click", () => {
     flipHiddenTopTradedDivs();
     document.querySelector("section.top-traded").classList.add("hidden");
 })
 
-const moveRightArticle = document.querySelector("article.move-right");
-moveRightArticle.addEventListener("click", () => {
+const moveRightSpan = document.querySelector("span.move-right");
+moveRightSpan.addEventListener("click", () => {
     flipHiddenTopTradedDivs();
 
     document.querySelector("section.top-traded").classList.remove("hidden");

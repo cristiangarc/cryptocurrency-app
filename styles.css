@@ -88,13 +88,11 @@ main.coins {
     overflow-x: hidden;
 }
 
-.primary h2,
-.secondary h2 {
+.primary h2 {
     font-size: 28px;
 }
 
-.primary h3,
-.secondary h3 {
+.primary h3 {
     font-size: 24px;
 }
 
@@ -117,34 +115,12 @@ main.coins {
     padding: 10px;
 }
 
-.secondary {
-    display: block;
-    white-space: nowrap;
-    padding: 15px 0px 15px 0px;
-    width: auto;
-    height: 100px;
-    position: absolute;
-    left: 100%;
-    top: 0%;
-    animation: secondary 15s linear 0;
-}
-
-.secondary article {
-    display: inline-block;
-    width: inherit;
-    height: inherit;
-    padding: 10px;
-}
-
 form {
     display: block;
 }
 
 div.top-traded {
     overflow: hidden;
-    display: inline-block;
-    width: 90%;
-    height: auto;
 }
 
 section.top-traded {
@@ -181,28 +157,25 @@ section.top-traded.hidden {
     /* border: 1px solid blue; */
 }
 
-article.move-left,
-article.move-right {
+article.arrows {
+	display: inline-block;
+}
+
+span.move-left,
+span.move-right {
     font-size: 24px;
     height: 15px;
-    display: inline-block;
-    vertical-align: bottom;
-    padding: 0px 0px 0px 0px;
-}
-
-article.move-left:hover,
-article.move-right:hover {
-    font-size: 26px;
-}
-
-article.move-left h3,
-article.move-right h3 {
-    padding: 10px 15px 0px 5px;
+		padding: 10px 15px 0px 5px;
     color: aliceblue;
 }
 
-article.move-left h3:active,
-article.move-right h3:active {
+span.move-left:hover,
+span.move-right:hover {
+    font-size: 26px;
+}
+
+span.move-left h3:active,
+span.move-right h3:active {
     color: red;
 }
 
@@ -210,25 +183,6 @@ form input {
     margin: 5px 15px 15px 0px;
     height: 25px;
 }
-
-@keyframes primary {
-    from {
-        left: 0%;
-    }
-    to {
-        left: -100%;
-    }
-}
-
-@keyframes secondary {
-    from {
-        left: 100%;
-    }
-    to {
-        left: 0%;
-    }
-}
-
 
 @media (max-width: 1000px) {
     h1, 
@@ -251,6 +205,10 @@ form input {
     
     main.coins {
     overflow: scroll;
+	}
+	
+	article.arrows {
+		display: none;
 	}
 	
 	section.top-traded {
